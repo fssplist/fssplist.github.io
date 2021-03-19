@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='msapplication-TileColor' content='#603cba'>
+    <meta name='theme-color' content='#ffffff'>
+
+    <title>Перечень подразделений ФССП</title>
+
+    <link rel='apple-touch-icon' sizes='180x180' href='https://shareform.ru/apple-touch-icon.png'>
+    <link rel='icon' type='image/png' sizes='32x32' href='https://shareform.ru/favicon-32x32.png'>
+    <link rel='icon' type='image/png' sizes='16x16' href='https://shareform.ru/favicon-16x16.png'>
+    <!--<link rel='manifest' href='https://shareform.ru/site.webmanifest'>-->
+    <link rel='mask-icon' href='https://shareform.ru/safari-pinned-tab.svg' color='#5bbad5'>
+
+    <script src='https://shareform.ru/js/jquery.min.js'></script>
+    <script src='https://shareform.ru/js/popper.min.js'></script>
+    <script src='https://shareform.ru/js/bootstrap.min.js'></script>
+
+    <script src="https://shareform.ru/js/jquery.inputmask.min.js"></script>
+
+    <!--<script src='https://shareform.ru/js/f4afbaa213.js' crossorigin='anonymous'></script>-->
+    <script src='https://shareform.ru/js/copytoclipboard.js'></script>
+    <script src='https://shareform.ru/js/share.js'></script>
+    <script src='https://shareform.ru/js/bootstrap4-toggle.min.js'></script>
+    <script src='https://shareform.ru/js/jquery.history.js'></script>
+
+
+    <script src='https://shareform.ru/js/math.min.js'></script>
+    <script src="https://shareform.ru/js/plotly-latest.min.js"></script>
+
+    <link rel='stylesheet' href='https://shareform.ru/css/bootstrap4-toggle.min.css' />
+    <link rel='stylesheet' href='https://shareform.ru/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='https://shareform.ru/css/style.css' />
+    <link rel='stylesheet' href='https://shareform.ru/css/yashare2.css' />
+    <link rel='stylesheet' href='https://shareform.ru/css/gutenberg.min.css' media='print' />
+    <link rel='stylesheet' href='https://shareform.ru/css/print.css' media='print' />
+
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="https://unpkg.com/papaparse@5.3.0/papaparse.min.js"></script>
+
+    <script type='module'>
+
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="container" class="container-fluid">
+		<input type="file" id="input" onchange="handleFiles(this.files)">
+		<div id="tt" class="container"></div>
+		<table id="ll" class="table table-striped">
+		<thead class="table table-dark"><tr><td></td></tr></thead>
+		<tbody></tbody>
+		</table>
+	</div>
+    <div id="footer"></div>
+    <!-- The Modals -->
+    <!-- 1 -->
+    <div class="modal fade" id="modallink">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Копировать ссылку</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div id="link" class="modal-body text-center container">
+                    <div class="form-group">
+                        <label for="link">Ссылка:</label>
+                        <textarea class="form-control" rows="5" id="link" disabled="disabled"></textarea>
+                    </div>
+                    <button id="btncopylink" type="button" class="btn btn-primary">Копировать</button>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Отмена</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 2 -->
+    <div class="modal fade" id="modalshare">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Поделиться ссылкой</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div id="icons" class="modal-body text-center container">
+                    <div class="ya-share2" data-bare data-curtain data-size="l" data-shape="round" data-services="vkontakte,facebook,odnoklassniki,messenger,telegram,twitter,viber,whatsapp,pinterest,collections,moimir,skype,tumblr,evernote,linkedin,lj,blogger,delicious,digg,reddit,pocket,qzone,renren,sinaWeibo,surfingbird,tencentWeibo"></div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Отмена</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 3 -->
+    <div class="modal fade" id="modalcogs">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Настройки</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div id="settingsbody" class="modal-body text-center container">
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Отмена</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+  <div id='footer1' class='container-fluid downjumbo no-print'></div>
+  <div id='footer2' class='container-fluid downjumbo no-print'></div>
+  <div id='footer3' class='container-fluid downjumbo no-print'></div>
+	<script>
+		const inputElement = document.getElementById("input");
+		inputElement.addEventListener("change", handleFiles, false);
+		function handleFiles() {
+		  const fileList = this.files; /* now you can work with the file list */
+		  
+		  var numFiles = fileList.length;
+		  var compareByRegionCode = function (a, b) { // <-G
+				return a[0] < b[0]?-1:1;
+			};
+		  
+		  for (var i = 0, numFiles = fileList.length; i < numFiles; i++) {
+			  var file = fileList[i];
+			  
+				Papa.parse(file, {
+					complete: function(results) {
+						var data = results.data;
+						
+						d3.selectAll(".line").remove();
+						
+						//d3.select("#tt").text(JSON.stringify(data));
+//region code	
+//code of the territorial agency	
+//name of the territorial agency	
+//postal address	
+//chief's full name	
+//telephone number	
+//fax	
+//phone of help service	
+//phone of help service 2	
+//working hours of the territorial agency	
+//territory of service
+							d3.select("thead tr").selectAll("td").data(data[0]).text((d)=>d);
+							d3.select("thead tr").selectAll("td").data(data[0]).enter().append("td").text((d)=>d);
+							d3.select("thead tr").selectAll("td").data(data[0]).exit().remove();
+						var lines = [];
+						data.forEach((line,i)=>{
+							if (i!=0 && line[0]!="") {
+								lines.push(line);
+							}
+						});
+						
+						function compareNumericByRegionCode(a, b, i=0) {
+							if (Number(a[i]) > Number(b[i])) return 1;
+							if (Number(a[i]) == Number(b[i])) return 0;
+							if (Number(a[i]) < Number(b[i])) return -1;
+						}
+						function compareNumericByTerritorialAgency(a, b, i=1) {
+							if (Number(a[i]) > Number(b[i])) return 1;
+							if (Number(a[i]) == Number(b[i])) return 0;
+							if (Number(a[i]) < Number(b[i])) return -1;
+						}
+
+
+						var lines = lines.sort(compareNumericByTerritorialAgency);
+						lines = lines.sort(compareNumericByRegionCode);
+						
+
+
+						var rows = d3.select("tbody")
+							.selectAll("tr").data(lines);
+							
+										
+						var rows_enter = rows	
+							.enter().append("tr");
+						
+						rows.exit().remove();
+						
+						var entries = rows_enter.selectAll("td");
+						var entries_data = entries.data( function(d, i) { return d; })
+						var dataenter = entries_data.enter();
+						dataenter.append("td").text((d)=>d);
+						
+
+
+					}
+				});
+
+			}
+		  
+		}
+	</script>
+</body>
+
+
+</html>

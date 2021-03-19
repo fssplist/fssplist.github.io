@@ -160,15 +160,15 @@
 						//d3.select("#tt").text(JSON.stringify(data));
 //region code	
 //code of the territorial agency	
-//name of the territorial agency	
-//postal address	
-//chief's full name	
-//telephone number	
-//fax	
-//phone of help service	
-//phone of help service 2	
-//working hours of the territorial agency	
-//territory of service
+//name of the territorial agency - наименование структурного подразделения	
+//postal address - почтовый адрес
+//chief's full name - ФИО начальника
+//telephone number - телфон
+//fax - факс
+//phone of help service - телефон справочной службы	
+//phone of help service 2 - телефон справочной службы 2
+//working hours of the territorial agency - время работы
+//territory of service - территория обслуживания
 							d3.select("thead tr").selectAll("td").data(data[0]).text((d)=>d);
 							d3.select("thead tr").selectAll("td").data(data[0]).enter().append("td").text((d)=>d);
 							d3.select("thead tr").selectAll("td").data(data[0]).exit().remove();
